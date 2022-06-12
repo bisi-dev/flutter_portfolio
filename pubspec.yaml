@@ -1,0 +1,28 @@
+name: flutter_showcase_template
+description: Flutter Showcase Template.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.3
+  flutter_showcase: ^0.1.0
+
+  shared:
+    path: apps/_shared/
+  boiler_app:
+    path: apps/boiler_app/
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
