@@ -16,6 +16,8 @@ dependencies:
     path: apps/_shared/
   mymedicinemobile:
     path: apps/mymedicinemobile/
+  boiler_app:
+    path: apps/boiler_app/
 
 dev_dependencies:
   flutter_test:

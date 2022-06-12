@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_showcase/flutter_showcase.dart';
 
 import 'package:mymedicinemobile/demo.dart' deferred as mymedicinemobile;
+import 'package:boiler_app/demo.dart' deferred as boiler_app;
 import 'package:shared/env.dart';
 
 class TemplateApp extends StatefulWidget {
@@ -155,8 +156,8 @@ This is a personal project. The full app is embedded on this site. You can also 
     ''',
     playStoreUrl:
     'https://play.google.com/store/apps/details?id=dev.bisi.defiscan',
-    loadLibrary: mymedicinemobile.loadLibrary,
-    page: (_) => mymedicinemobile.MyApp(),
+    loadLibrary: boiler_app.loadLibrary,
+    page: (_) => boiler_app.MyApp(),
     theme: TemplateThemeData(
         brightness: Brightness.light,
         buttonTheme: ButtonThemeData(
@@ -176,7 +177,7 @@ This is a personal project. The full app is embedded on this site. You can also 
             fontFamily: 'OpenSans',
             fontSize: 50,
             fontWeight: FontWeight.w700,
-            package: 'mymedicinemobile'),
+            package: 'boiler_app'),
         backgroundColor: Color(0xFFf0f0f0),
         buttonTextStyle: TextStyle(
             fontSize: 16,
@@ -184,7 +185,7 @@ This is a personal project. The full app is embedded on this site. You can also 
             fontFamily: 'OpenSans',
             fontWeight: FontWeight.w600,
             color: Colors.white,
-            package: 'mymedicinemobile'),
+            package: 'boiler_app'),
         buttonIconTheme: IconThemeData(color: Colors.white)),
   );
 

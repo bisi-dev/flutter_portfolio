@@ -10,6 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  cupertino_icons: ^0.1.2
+  flutter_svg: ^0.22.0
+
   shared:
       path: ../_shared
 
@@ -20,3 +23,20 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/svg/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/PoppinsBold-GdJA.otf
+          weight: 700
+        - asset: assets/fonts/PoppinsMedium-1JPv.otf
+          weight: 500
+        - asset: assets/fonts/PoppinsRegular-B2Bw.otf
+          weight: 400
+        - asset: assets/fonts/PoppinsSemibold-8l8n.otf
+          weight: 500
+        - asset: assets/fonts/PoppinsThin-rO2B.otf
+          weight: 300
