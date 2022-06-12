@@ -1,11 +1,11 @@
 {
-    "name": "flutter_showcase_template",
-    "short_name": "flutter_showcase_template",
+    "name": "flutter_portfolio",
+    "short_name": "flutter_portfolio",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Flutter Showcase Template.",
+    "description": "Ayodeji Olabisi | Flutter Portfolio",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -1,5 +1,5 @@
-name: flutter_showcase_template
-description: Flutter Showcase Template.
+name: flutter_portfolio
+description: Flutter Portfolio.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
@@ -14,8 +14,8 @@ dependencies:
 
   shared:
     path: apps/_shared/
-  boiler_app:
-    path: apps/boiler_app/
+  mymedicinemobile:
+    path: apps/mymedicinemobile/
 
 dev_dependencies:
   flutter_test:

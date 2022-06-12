@@ -8,7 +8,7 @@ import 'indicator/effects/expanding_dots_effect.dart';
 import 'package:flutter_showcase/flutter_showcase.dart';
 
 void main() => runApp(Examples());
-String name = 'XXX';
+String name = 'Ayodeji Olabisi';
 
 class Examples extends StatefulWidget {
   @override
@@ -53,7 +53,7 @@ Built with Flutter Showcase Package
                           height: 1.2,
                           fontWeight: FontWeight.w200),
                       buttonTheme: ButtonThemeData(
-                        buttonColor: Color(0xFF083e64),
+                        buttonColor: Colors.white,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4)),
                         textTheme: ButtonTextTheme.accent,
@@ -64,12 +64,25 @@ Built with Flutter Showcase Package
                             letterSpacing: .8,
                             fontFamily: 'OpenSans',
                             fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                            package: 'boiler_app'),
-                        buttonIconTheme: IconThemeData(color: Colors.white)
+                            color: Colors.black,
+                            package: 'mymedicinemobile'),
+                        buttonIconTheme: IconThemeData(color: Colors.black)
                     ),
                     links: [
-                      LinkData.github('https://github.com/bisi-dev/flutter_showcase_template'),
+                      LinkData.github('https://github.com/bisi-dev'),
+                      LinkData(
+                        url: 'https://bisi.dev/',
+                        title: 'Home Portfolio',
+                        icon: Opacity(
+                          opacity: 0.8,
+                          child: Padding(
+                              padding: EdgeInsets.only(top: 0),
+                              child: Image.asset(
+                                'assets/logo.png',
+                                fit: BoxFit.fitHeight,
+                              )),
+                        ),
+                      ),
                     ],
                     logoLink: LinkData(
                       url: 'https://flutter.gskinner.com/',
@@ -135,14 +148,14 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-          Text('Hi All!',
+          Text('Hi All !',
               style: Theme.of(context)
                   .textTheme
                   .headline4
                   .copyWith(color: Colors.black87)),
           SizedBox(height: 8),
           Text('I am $name.', style: TextStyle(fontSize: 20)),
-          Text('A budding flutter developer.', style: TextStyle(fontSize: 20)),
+          Text('An experienced flutter developer.', style: TextStyle(fontSize: 20)),
           SizedBox(
             height: 24,
           ),
