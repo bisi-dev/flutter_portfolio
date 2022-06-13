@@ -1,0 +1,42 @@
+name: defiscan
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  shared:
+      path: ../_shared
+
+  cupertino_icons: ^0.1.3
+  animated_splash_screen: ^1.2.0
+  bottom_navy_bar: ^6.0.0
+  cached_network_image: ^3.2.0
+  flutter_settings_ui: ^2.0.1
+  flutter_swipe_action_cell: ^2.2.0
+  font_awesome_flutter: ^8.8.1
+  getwidget: ^2.0.4
+  http: ^0.13.4
+  loading_animation_widget:
+  page_transition: ^2.0.5
+  shared_preferences: ^2.0.13
+  sqflite:
+  timeago: ^3.2.2
+  ens_dart: ^1.0.0
+  ethers:
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

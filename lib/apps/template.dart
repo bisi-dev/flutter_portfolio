@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_showcase/flutter_showcase.dart';
 
 import 'package:mymedicinemobile/demo.dart' deferred as mymedicinemobile;
-import 'package:boiler_app/demo.dart' deferred as boiler_app;
+import 'package:defiscan/demo.dart' deferred as defiscan;
 import 'package:shared/env.dart';
 
 class TemplateApp extends StatefulWidget {
@@ -152,12 +152,12 @@ Personal Project
 
 DeFi Scan is a multi-purpose mobile block chain explorer app where individuals can search, explore, curate & store records of multiple cryptocurrency accounts in one overview.
 
-This is a personal project. The full app is embedded on this site. You can also visit the playstore to use.
+This is a personal project. An extensive preview is embedded on this site. You can also visit the playstore to use.
     ''',
     playStoreUrl:
     'https://play.google.com/store/apps/details?id=dev.bisi.defiscan',
-    loadLibrary: boiler_app.loadLibrary,
-    page: (_) => boiler_app.MyApp(),
+    loadLibrary: defiscan.loadLibrary,
+    page: (_) => defiscan.MyApp(),
     theme: TemplateThemeData(
         brightness: Brightness.light,
         buttonTheme: ButtonThemeData(
@@ -177,7 +177,7 @@ This is a personal project. The full app is embedded on this site. You can also 
             fontFamily: 'OpenSans',
             fontSize: 50,
             fontWeight: FontWeight.w700,
-            package: 'boiler_app'),
+            package: 'defiscan'),
         backgroundColor: Color(0xFFf0f0f0),
         buttonTextStyle: TextStyle(
             fontSize: 16,
@@ -185,7 +185,7 @@ This is a personal project. The full app is embedded on this site. You can also 
             fontFamily: 'OpenSans',
             fontWeight: FontWeight.w600,
             color: Colors.white,
-            package: 'boiler_app'),
+            package: 'defiscan'),
         buttonIconTheme: IconThemeData(color: Colors.white)),
   );
 

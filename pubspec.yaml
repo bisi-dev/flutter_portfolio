@@ -10,14 +10,16 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.3
-  flutter_showcase: ^0.1.0
+  flutter_showcase:
+    git:
+      url: https://github.com/bisi-dev/flutter_showcase
 
   shared:
     path: apps/_shared/
   mymedicinemobile:
     path: apps/mymedicinemobile/
-  boiler_app:
-    path: apps/boiler_app/
+  defiscan:
+    path: apps/defiscan/
 
 dev_dependencies:
   flutter_test:
