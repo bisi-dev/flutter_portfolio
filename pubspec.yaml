@@ -20,6 +20,8 @@ dependencies:
     path: apps/mymedicinemobile/
   defiscan:
     path: apps/defiscan/
+  flutter_flutterwave:
+    path: apps/flutter_flutterwave/
 
 dev_dependencies:
   flutter_test:

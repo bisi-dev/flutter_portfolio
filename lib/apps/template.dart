@@ -5,6 +5,7 @@ import 'package:flutter_showcase/flutter_showcase.dart';
 
 import 'package:mymedicinemobile/demo.dart' deferred as mymedicinemobile;
 import 'package:defiscan/demo.dart' deferred as defiscan;
+import 'package:flutter_flutterwave/demo.dart' deferred as flutter_flutterwave;
 import 'package:shared/env.dart';
 
 class TemplateApp extends StatefulWidget {
@@ -189,8 +190,52 @@ This is a personal project. An extensive preview is embedded on this site. You c
         buttonIconTheme: IconThemeData(color: Colors.white)),
   );
 
+  static _TemplateApp flutterwave = _TemplateApp(
+    title: 'Flutterwave Payment App',
+    description: ''' 
+Personal Project
+
+This is a simple payment app using flutterwave as a payment provider. 
+I built this app to show how to integrate flutterwave in flutter apps in order to accept payments.
+    ''',
+    githubUrl:
+    'https://github.com/bisi-dev/flutter_flutterwave',
+    loadLibrary: flutter_flutterwave.loadLibrary,
+    page: (_) => flutter_flutterwave.MyApp(),
+    theme: TemplateThemeData(
+        brightness: Brightness.light,
+        buttonTheme: ButtonThemeData(
+          buttonColor: Color(0xFF083e64),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          textTheme: ButtonTextTheme.accent,
+          padding: EdgeInsets.all(16),
+        ),
+        flutterLogoColor: FlutterLogoColor.original,
+        descriptionTextStyle: TextStyle(
+            color: Color(0xFF083e64),
+            fontWeight: FontWeight.w300,
+            fontFamily: 'OpenSans',
+            package: 'gooey_edge'),
+        titleTextStyle: TextStyle(
+            color: Color(0xFF212121),
+            fontFamily: 'OpenSans',
+            fontSize: 50,
+            fontWeight: FontWeight.w700,
+            package: 'flutter_flutterwave'),
+        backgroundColor: Color(0xFFf0f0f0),
+        buttonTextStyle: TextStyle(
+            fontSize: 16,
+            letterSpacing: .8,
+            fontFamily: 'OpenSans',
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+            package: 'flutter_flutterwave'),
+        buttonIconTheme: IconThemeData(color: Colors.white)),
+  );
+
   static List<_TemplateApp> values = [
     myMedicineMobile,
-    defiScan
+    defiScan,
+    flutterwave
   ];
 }

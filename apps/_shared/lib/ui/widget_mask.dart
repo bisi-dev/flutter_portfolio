@@ -59,7 +59,7 @@ class WidgetMask extends Stack {
       AlignmentGeometry alignment = AlignmentDirectional.topStart,
       TextDirection textDirection,
       StackFit fit = StackFit.loose,
-      Overflow overflow = Overflow.clip,
+      Clip clipBehaviour = Clip.none,
       @required Widget maskChild,
       @required Widget child})
       : super(
@@ -67,7 +67,7 @@ class WidgetMask extends Stack {
           alignment: alignment,
           textDirection: textDirection,
           fit: fit,
-          overflow: overflow,
+          clipBehavior: clipBehaviour,
           children: [maskChild, child],
         );
 
