@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:js' as js;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutterwave_standard/flutterwave.dart';
 
@@ -33,6 +34,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
   final String txRef = "unique_transaction_ref_${Random().nextInt(1000000)}";
 
   void _makePayment() async {
+    print(txRef);
     final style = FlutterwaveStyle(
         appBarText: "Pay with Flutterwave",
         buttonColor: Colors.orangeAccent,
@@ -78,6 +80,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
         ScaffoldMessenger.of(context).showSnackBar(snackBarFailure);
       }
     } else {
+      print('response is null');
       ScaffoldMessenger.of(context).showSnackBar(snackBarFailure);
     }
   }
@@ -120,7 +123,8 @@ class _CheckOutPageState extends State<CheckOutPage> {
   Widget CheckOutCard() {
     return InkWell(
       onTap: () {
-        _makePayment();
+        js.context.callMethod("makePayment");
+        // _makePayment();
       },
       child: Card(
         margin: EdgeInsets.symmetric(horizontal: 10),
