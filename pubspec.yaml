@@ -22,6 +22,8 @@ dependencies:
     path: apps/defiscan/
   flutter_flutterwave:
     path: apps/flutter_flutterwave/
+  flutter_paystack_app:
+    path: apps/flutter_paystack_app/
 
 dev_dependencies:
   flutter_test:

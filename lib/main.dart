@@ -83,6 +83,19 @@ Built with Flutter Showcase Package
                               )),
                         ),
                       ),
+                      LinkData(
+                        url: 'https://drive.google.com/file/d/1StqzPgjZfeyRP_lLI2cR41TQnq0-cen6/view?usp=sharing',
+                        title: 'Resume',
+                        icon: Opacity(
+                          opacity: 0.8,
+                          child: Padding(
+                              padding: EdgeInsets.only(top: 0),
+                              child: Image.asset(
+                                'assets/logo.png',
+                                fit: BoxFit.fitHeight,
+                              )),
+                        ),
+                      ),
                     ],
                     logoLink: LinkData(
                       url: 'https://flutter.gskinner.com/',
