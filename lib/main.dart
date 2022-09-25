@@ -17,6 +17,7 @@ class Examples extends StatefulWidget {
 
 class _ExamplesState extends State<Examples> {
   PageController pageController;
+  int showIndex = 0;
   @override
   void initState() {
     pageController = PageController(initialPage: 0);
@@ -29,6 +30,11 @@ class _ExamplesState extends State<Examples> {
         textDirection: TextDirection.ltr,
         child: Stack(children: [
           PageView.builder(
+              onPageChanged: (page) {
+                setState(() {
+                  showIndex = page;
+                });
+              },
               controller: pageController,
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
@@ -42,23 +48,30 @@ class _ExamplesState extends State<Examples> {
                     description: '''
 $name
 
-Built with Flutter Showcase Package      
+Built with Flutter Showcase Package to showcase my proficiency in:
+
+• Flutter cross-platform mobile app development.
+• REST API, Firebase, and GraphQL integration.
+• Technical Writing and Documentation
+• Managing app lifecycle from Figma sketches to app stores.
+• Handling complex state and state management solutions with BloC, Provider.
+• Dart language, Dev tools, Version Control (Git), and CI/CD tools (CodeMagic, BitRise, Github Actions).
                   ''',
                     template: SimpleTemplate(reverse: false),
                     theme: TemplateThemeData(
-                      backgroundColor: Colors.grey[100],
-                      titleTextStyle: TextStyle(fontWeight: FontWeight.w700),
-                      descriptionTextStyle: TextStyle(
-                          fontSize: 24,
-                          height: 1.2,
-                          fontWeight: FontWeight.w200),
-                      buttonTheme: ButtonThemeData(
-                        buttonColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4)),
-                        textTheme: ButtonTextTheme.accent,
-                        padding: EdgeInsets.all(16),
-                      ),
+                        backgroundColor: Colors.grey[100],
+                        titleTextStyle: TextStyle(fontWeight: FontWeight.w700),
+                        descriptionTextStyle: TextStyle(
+                            fontSize: 18,
+                            height: 1.75,
+                            fontWeight: FontWeight.w200),
+                        buttonTheme: ButtonThemeData(
+                          buttonColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4)),
+                          textTheme: ButtonTextTheme.accent,
+                          padding: EdgeInsets.all(16),
+                        ),
                         buttonTextStyle: TextStyle(
                             fontSize: 16,
                             letterSpacing: .8,
@@ -66,26 +79,12 @@ Built with Flutter Showcase Package
                             fontWeight: FontWeight.w600,
                             color: Colors.black,
                             package: 'mymedicinemobile'),
-                        buttonIconTheme: IconThemeData(color: Colors.black)
-                    ),
+                        buttonIconTheme: IconThemeData(color: Colors.black)),
                     links: [
                       LinkData.github('https://github.com/bisi-dev'),
                       LinkData(
                         url: 'https://bisi.dev/',
                         title: 'Home Portfolio',
-                        icon: Opacity(
-                          opacity: 0.8,
-                          child: Padding(
-                              padding: EdgeInsets.only(top: 0),
-                              child: Image.asset(
-                                'assets/logo.png',
-                                fit: BoxFit.fitHeight,
-                              )),
-                        ),
-                      ),
-                      LinkData(
-                        url: 'https://drive.google.com/file/d/1StqzPgjZfeyRP_lLI2cR41TQnq0-cen6/view?usp=sharing',
-                        title: 'Resume',
                         icon: Opacity(
                           opacity: 0.8,
                           child: Padding(
@@ -117,15 +116,52 @@ Built with Flutter Showcase Package
               alignment: Alignment.centerRight,
               child: Padding(
                   padding: EdgeInsets.all(20),
-                  child: SmoothPageIndicator(
-                      controller: pageController,
-                      count: 1 + TemplateApps.values.length,
-                      effect: ExpandingDotsEffect(
-                          radius: 14,
-                          dotHeight: 10,
-                          dotWidth: 10,
-                          dotColor: Colors.black12,
-                          activeDotColor: Colors.black87))))
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Visibility(
+                        visible: showIndex != 0,
+                        child: OutlinedButton(
+                            onPressed: () => pageController?.previousPage(
+                                duration: Duration(seconds: 1),
+                                curve: Curves.easeInOutQuart),
+                            child: Icon(
+                              Icons.arrow_upward,
+                              color: Colors.black87,
+                            ),
+                            style: OutlinedButton.styleFrom(
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(4),
+                            )),
+                      ),
+                      SizedBox(height: 5),
+                      SmoothPageIndicator(
+                          controller: pageController,
+                          count: 1 + TemplateApps.values.length,
+                          effect: ExpandingDotsEffect(
+                              radius: 14,
+                              dotHeight: 10,
+                              dotWidth: 10,
+                              dotColor: Colors.black12,
+                              activeDotColor: Colors.black87)),
+                      SizedBox(height: 5),
+                      Visibility(
+                        visible: showIndex != TemplateApps.values.length,
+                        child: OutlinedButton(
+                            onPressed: () => pageController?.nextPage(
+                                duration: Duration(seconds: 1),
+                                curve: Curves.easeInOutQuart),
+                            child: Icon(
+                              Icons.arrow_downward,
+                              color: Colors.black87,
+                            ),
+                            style: OutlinedButton.styleFrom(
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(4),
+                            )),
+                      )
+                    ],
+                  )))
         ]));
   }
 }
@@ -168,7 +204,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   .copyWith(color: Colors.black87)),
           SizedBox(height: 8),
           Text('I am $name.', style: TextStyle(fontSize: 20)),
-          Text('An experienced flutter developer.', style: TextStyle(fontSize: 20)),
+          Text('An experienced flutter developer.',
+              style: TextStyle(fontSize: 20)),
           SizedBox(
             height: 24,
           ),

@@ -57,6 +57,8 @@ class _TemplateApp {
 
   final String playStoreUrl;
 
+  final String appStoreUrl;
+
   final String articleUrl;
 
   final Future<dynamic> Function() loadLibrary;
@@ -73,6 +75,7 @@ class _TemplateApp {
       this.page,
       this.theme,
       this.playStoreUrl,
+      this.appStoreUrl,
       this.articleUrl,
       this.codePenUrl});
 
@@ -99,6 +102,20 @@ class _TemplateApp {
                     padding: EdgeInsets.only(top: 0),
                     child: Image.asset(
                       'assets/logo-google-play.png',
+                      fit: BoxFit.fitHeight,
+                    )),
+              ),
+            ),
+          if (appStoreUrl != null)
+            LinkData(
+              url: appStoreUrl,
+              title: 'App Store',
+              icon: Opacity(
+                opacity: 0.8,
+                child: Padding(
+                    padding: EdgeInsets.only(top: 0),
+                    child: Image.asset(
+                      'assets/logo-app-store.png',
                       fit: BoxFit.fitHeight,
                     )),
               ),
@@ -173,10 +190,9 @@ Personal - Commercial Project
 
 DeFi Scan is a multi-purpose mobile block chain explorer app where individuals can search, explore, curate & store records of multiple cryptocurrency accounts in one overview.
 
-This is a personal project. An extensive preview is embedded on this site. You can also visit the playstore to use.
+This is a personal project. An extensive preview is embedded on this site. You can also visit the App store to use.
     ''',
-    playStoreUrl:
-        'https://play.google.com/store/apps/details?id=dev.bisi.defiscan',
+    appStoreUrl: 'https://www.apple.com/app-store/',
     loadLibrary: defiscan.loadLibrary,
     page: (_) => defiscan.MyApp(),
     theme: TemplateThemeData(
@@ -221,7 +237,8 @@ Flutterwave is a fintech company that provides a payment infrastructure for glob
 I built this app to explain how to integrate Flutterwave's SDK in flutter apps in order to accept payments.
     ''',
     githubUrl: 'https://github.com/bisi-dev/flutter_flutterwave',
-    articleUrl: 'https://blog.bisi.dev/tutorial-integrate-flutterwave-into-your-flutter-app',
+    articleUrl:
+        'https://blog.bisi.dev/tutorial-integrate-flutterwave-into-your-flutter-app',
     loadLibrary: flutter_flutterwave.loadLibrary,
     page: (_) => flutter_flutterwave.MyApp(),
     theme: TemplateThemeData(
@@ -266,6 +283,8 @@ Paystack (YC 2016) offers payment processing software and application programmin
 I built this app to explain how to integrate Paystack's SDK in flutter apps in order to accept payments.
     ''',
     githubUrl: 'https://github.com/bisi-dev',
+    articleUrl:
+        'https://blog.bisi.dev/tutorial-integrate-paystack-into-your-flutter-app',
     loadLibrary: flutter_paystack_app.loadLibrary,
     page: (_) => flutter_paystack_app.MyApp(),
     theme: TemplateThemeData(
@@ -300,8 +319,8 @@ I built this app to explain how to integrate Paystack's SDK in flutter apps in o
   );
 
   static List<_TemplateApp> values = [
-    myMedicineMobile,
     defiScan,
+    myMedicineMobile,
     flutterwave,
     paystack
   ];
