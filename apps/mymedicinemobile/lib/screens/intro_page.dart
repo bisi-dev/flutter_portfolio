@@ -138,9 +138,7 @@ class _IntroPage extends State<IntroPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            print(currentIndex);
                             if (currentIndex != 3) {
-                              print("We In $currentIndex");
                               onAddButtonTapped(currentIndex + 1);
                             } else {
                               setState(() {
@@ -149,7 +147,8 @@ class _IntroPage extends State<IntroPage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => new StartAuthPage()));
+                                      builder: (context) =>
+                                          new StartAuthPage()));
                             }
                           },
                           child: Container(
@@ -197,24 +196,19 @@ class _IntroPage extends State<IntroPage> {
                       onTap: () {
                         onAddButtonTapped(currentIndex - 1);
                       },
-                      child: SvgPicture.asset("assets/svg/back_arrow.svg", package: App.pkg)),
+                      child: SvgPicture.asset("assets/svg/back_arrow.svg",
+                          package: App.pkg)),
               Row(
                 children: [
                   Container(
-                    child: Image.asset(
-                      "assets/images/newlogo.png",
-                      width: 30,
-                      height: 30, package: App.pkg
-                    ),
+                    child: Image.asset("assets/images/newlogo.png",
+                        width: 30, height: 30, package: App.pkg),
                   ),
                   SizedBox(
                     width: 5,
                   ),
-                  SvgPicture.asset(
-                    "assets/svg/mymedicines.svg",
-                    height: 20,
-                      package: App.pkg
-                  ),
+                  SvgPicture.asset("assets/svg/mymedicines.svg",
+                      height: 20, package: App.pkg),
                 ],
               ),
               currentIndex != 3
