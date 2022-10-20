@@ -104,8 +104,9 @@ class _SettingsPageState extends State<SettingsPage> {
               leading: const Icon(Icons.rate_review_outlined),
               theme: settingsTileTheme,
               onPressed: (context) => {
-                js.context
-                    .callMethod('open', ['https://www.apple.com/app-store/'])
+                js.context.callMethod('open', [
+                  'https://apps.apple.com/us/app/defi-scan/id1644035976?platform=iphone'
+                ])
               },
             ),
           ],
@@ -124,7 +125,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
               const Text(
-                'Version: 1.1.0',
+                'Version: 1.0.0',
                 style: TextStyle(color: AppColor.kFairGrey),
               ),
             ],
