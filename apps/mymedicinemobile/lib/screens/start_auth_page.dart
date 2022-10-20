@@ -16,16 +16,17 @@ class _StartAuthPage extends State<StartAuthPage> {
     super.initState();
   }
 
-  void playstoreAlert (){
+  void playstoreAlert() {
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
       backgroundColor: kPrimaryColor,
       duration: Duration(seconds: 4),
-      content: Text('This is a commercial app owned by myMedicines. Visit PlayStore to Continue'),
+      content: Text(
+          'This is a commercial app owned by myMedicines. Visit PlayStore to Continue'),
     ));
   }
+
   @override
   Widget build(BuildContext context) {
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -35,89 +36,93 @@ class _StartAuthPage extends State<StartAuthPage> {
         child: Container(
           width: width,
           height: height,
-          child:
-
-
-            Stack(
-              children: [
-                Positioned(
-                  top: height/4,
-                    left: 20,
-                    right: 20,
-                    bottom: 0,
-                    child: Container(
-                      child: Column(
+          child: Stack(
+            children: [
+              Positioned(
+                top: height / 4,
+                left: 20,
+                right: 20,
+                bottom: 0,
+                child: Container(
+                  child: Column(
+                    children: [
+                      Row(
                         children: [
-
-                          Row(
-                            children: [
-                              Container(
-                                child: Image.asset(
-                                  "assets/images/newlogo.png",
-                                  width: 30,
-                                  height: 30,
-                                    package: App.pkg
-                                ),
-                              ),
-                              SizedBox(width: 5,),
-                              SvgPicture.asset("assets/svg/mymedicines.svg",
-                                height: 20,
-                              ),
-                            ],
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          Container(
+                            child: Image.asset("assets/images/newlogo.png",
+                                width: 30, height: 30, package: App.pkg),
                           ),
-
-                          SizedBox(height: 100,),
-                          InkWell(
-                            onTap: (){
-                              playstoreAlert();
-                            },
-                            child: Container(
-                              width: width,
-                              height: 40,
-                              color: kPrimaryColor,
-                              child: Center(
-                                child: Text(
-                                   "GET STARTED",
-                                  style: kmediumTextBold(kColorWhite),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
+                          SizedBox(
+                            width: 5,
                           ),
-
-                          SizedBox(height: 25,),
-                          InkWell(
-                            onTap: (){
-                              playstoreAlert();
-                            },
-                            child: Container(
-                              width: width,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: kColorWhite,
-                                border: Border.all(
-                                    width: .8,
-                                    color: kPrimaryColor,
-                                    style: BorderStyle.solid),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "LOG IN",
-                                  style: kmediumTextBold(kPrimaryColor),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
+                          SvgPicture.asset(
+                            "assets/svg/mymedicines.svg",
+                            height: 20,
                           ),
                         ],
+                        mainAxisAlignment: MainAxisAlignment.center,
                       ),
-                    ),
+                      SizedBox(
+                        height: 100,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          playstoreAlert();
+                        },
+                        child: Container(
+                          width: width,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: kPrimaryColor,
+                            ),
+                            color: kPrimaryColor,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8.0)),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "GET STARTED",
+                              style: kmediumTextBold(kColorWhite),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          playstoreAlert();
+                        },
+                        child: Container(
+                          width: width,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: kColorWhite,
+                            border: Border.all(
+                                width: .8,
+                                color: kPrimaryColor,
+                                style: BorderStyle.solid),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8.0)),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "LOG IN",
+                              style: kmediumTextBold(kPrimaryColor),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-              ],
-            ),
-
-
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

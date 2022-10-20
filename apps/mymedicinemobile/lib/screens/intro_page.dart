@@ -154,7 +154,14 @@ class _IntroPage extends State<IntroPage> {
                           child: Container(
                             width: width,
                             height: 40,
-                            color: kPrimaryColor,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: kPrimaryColor,
+                              ),
+                              color: kPrimaryColor,
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(8.0)),
+                            ),
                             child: Center(
                               child: Text(
                                 "NEXT",
