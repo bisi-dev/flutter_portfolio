@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'start_auth_page.dart';
 
 import '../constants.dart';
-import '../text_style.dart';
 import '../main.dart';
+import '../text_style.dart';
+import 'start_auth_page.dart';
 
 class IntroPage extends StatefulWidget {
-  _IntroPage createState() => new _IntroPage();
+  const IntroPage({Key? key}) : super(key: key);
+
+  @override
+  _IntroPage createState() => _IntroPage();
 }
 
 class _IntroPage extends State<IntroPage> {
@@ -25,7 +28,6 @@ class _IntroPage extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     return WillPopScope(
       onWillPop: () async {
@@ -35,14 +37,13 @@ class _IntroPage extends State<IntroPage> {
       child: Scaffold(
         backgroundColor: kColorWhite,
         body: SafeArea(
-          child: Container(
-              child: Stack(
+          child: Stack(
             children: [
               PageView(
                 controller: pageController,
-                onPageChanged: (var int) {
+                onPageChanged: (var i) {
                   setState(() {
-                    currentIndex = int;
+                    currentIndex = i;
                   });
                 },
                 children: [
@@ -66,12 +67,12 @@ class _IntroPage extends State<IntroPage> {
                   bottom: 45,
                   left: 20,
                   right: 20,
-                  child: Container(
+                  child: SizedBox(
                     width: width,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
+                        SizedBox(
                           height: 5,
                           width: 80,
                           child: ListView(
@@ -81,48 +82,48 @@ class _IntroPage extends State<IntroPage> {
                                 width: currentIndex == 0 ? 40 : 10,
                                 height: 5,
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
                                   color: currentIndex == 0
                                       ? kPrimaryColor
                                       : kColorSmoke,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 3,
                               ),
                               Container(
                                 width: currentIndex == 1 ? 40 : 10,
                                 height: 5,
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
                                   color: currentIndex == 1
                                       ? kPrimaryColor
                                       : kColorSmoke,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 3,
                               ),
                               Container(
                                 width: currentIndex == 2 ? 40 : 10,
                                 height: 5,
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
                                   color: currentIndex == 2
                                       ? kPrimaryColor
                                       : kColorSmoke,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 3,
                               ),
                               Container(
                                 decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
                                   color: currentIndex == 3
                                       ? kPrimaryColor
                                       : kColorSmoke,
@@ -133,7 +134,7 @@ class _IntroPage extends State<IntroPage> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         InkWell(
@@ -147,8 +148,7 @@ class _IntroPage extends State<IntroPage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          new StartAuthPage()));
+                                      builder: (context) => StartAuthPage()));
                             }
                           },
                           child: Container(
@@ -171,14 +171,14 @@ class _IntroPage extends State<IntroPage> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                       ],
                     ),
                   ))
             ],
-          )),
+          ),
         ),
       ),
     );
@@ -191,14 +191,14 @@ class _IntroPage extends State<IntroPage> {
     return Container(
       width: width,
       height: height,
-      padding: EdgeInsets.only(left: 10, right: 10, top: 20),
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               currentIndex == 0
-                  ? Text("")
+                  ? const Text("")
                   : InkWell(
                       onTap: () {
                         onAddButtonTapped(currentIndex - 1);
@@ -207,13 +207,9 @@ class _IntroPage extends State<IntroPage> {
                           package: App.pkg)),
               Row(
                 children: [
-                  Container(
-                    child: Image.asset("assets/images/newlogo.png",
-                        width: 30, height: 30, package: App.pkg),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
+                  Image.asset("assets/images/newlogo.png",
+                      width: 30, height: 30, package: App.pkg),
+                  const SizedBox(width: 5),
                   SvgPicture.asset("assets/svg/mymedicines.svg",
                       height: 20, package: App.pkg),
                 ],
@@ -232,29 +228,27 @@ class _IntroPage extends State<IntroPage> {
                         textAlign: TextAlign.center,
                       ),
                     )
-                  : Text("")
+                  : const Text("")
             ],
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 25),
-            margin: EdgeInsets.only(left: 5, right: 5, top: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+            margin: const EdgeInsets.only(left: 5, right: 5, top: 30),
             child: Column(
               children: [
                 Image.asset(path, package: App.pkg),
                 Text(
                   firstTxt,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
                       fontFamily: "Poppins",
                       color: kColorBlack),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Text(secondTxt,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 13,
                         fontFamily: "Poppins",

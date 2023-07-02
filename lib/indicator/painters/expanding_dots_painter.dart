@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import '../effects/expanding_dots_effect.dart';
 
+import '../effects/expanding_dots_effect.dart';
 import 'indicator_painter.dart';
 
 class ExpandingDotsPainter extends IndicatorPainter {
   final ExpandingDotsEffect effect;
 
   ExpandingDotsPainter({
-    @required double offset,
-    @required this.effect,
-    @required int count,
-    @required bool isRTL,
+    required double offset,
+    required this.effect,
+    required int count,
+    required bool isRTL,
   }) : super(offset, count, effect, isRTL);
 
   @override
@@ -20,7 +20,7 @@ class ExpandingDotsPainter extends IndicatorPainter {
     final dotOffset = offset - current;
 
     for (int i = 0; i < count; i++) {
-      Color color = effect.dotColor;
+      Color? color = effect.dotColor;
       final activeDotHeight = effect.dotHeight * effect.expansionFactor;
       final expansion =
           (dotOffset / 2 * ((activeDotHeight - effect.dotHeight) / .5));
@@ -43,7 +43,7 @@ class ExpandingDotsPainter extends IndicatorPainter {
         dotRadius,
       );
       drawingOffset = rRect.bottom;
-      canvas.drawRRect(rRect, dotPaint..color = color);
+      canvas.drawRRect(rRect, dotPaint..color = color ?? Colors.black);
     }
   }
 }

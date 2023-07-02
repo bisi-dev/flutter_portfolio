@@ -1,105 +1,82 @@
 import 'package:flutter/material.dart';
 
 const mini = 10.0;
-const Small = 13.0;
-const SmallMedium = 14.0;
-const Medium = 15.0;
-const ExtraMedium = 17.0;
-const Large = 20.0;
+const small = 13.0;
+const smallMedium = 14.0;
+const medium = 15.0;
+const extraMedium = 17.0;
+const large = 20.0;
 const String fontFamily = "Poppins";
 
-
-TextStyle kminismall(Color colors) =>  TextStyle(
+TextStyle kminismall(Color colors) => TextStyle(
     color: colors,
     fontSize: mini,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w400
-);
+    fontWeight: FontWeight.w400);
 
+TextStyle kTabText(Color colors) => TextStyle(
+      color: colors,
+      fontSize: 17,
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w500,
+    );
 
-TextStyle kTabText(Color colors) =>  TextStyle(
+TextStyle ksmallText(Color colors) => TextStyle(
     color: colors,
-    fontSize: 17,
+    fontSize: small,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w500,
-);
+    fontWeight: FontWeight.w300);
 
-TextStyle ksmallText(Color colors) =>  TextStyle(
+TextStyle ksmallMediumText(Color colors) => TextStyle(
     color: colors,
-    fontSize: Small,
+    fontSize: smallMedium,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w300
-);
+    fontWeight: FontWeight.w400);
 
-TextStyle ksmallMediumText(Color colors) =>  TextStyle(
+TextStyle ksmallTextBold(Color colors) => TextStyle(
     color: colors,
-    fontSize: SmallMedium,
+    fontSize: small,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w400
-);
+    fontWeight: FontWeight.w400);
 
-
-TextStyle ksmallTextBold(Color colors) =>  TextStyle(
+TextStyle kmediumText(Color colors) => TextStyle(
     color: colors,
-    fontSize: Small,
+    fontSize: medium,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w400
-);
+    fontWeight: FontWeight.w400);
 
-
-TextStyle kmediumText(Color colors) =>  TextStyle(
+TextStyle kmediumTextBold(Color colors) => TextStyle(
     color: colors,
-    fontSize: Medium,
+    fontSize: medium,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w400
-);
+    fontWeight: FontWeight.w400);
 
-
-
-TextStyle kmediumTextBold(Color colors) =>  TextStyle(
+TextStyle kmediumTextExtra(Color colors) => TextStyle(
     color: colors,
-    fontSize: Medium,
+    fontSize: extraMedium,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w400
-);
+    fontWeight: FontWeight.w400);
 
-
-
-TextStyle kmediumTextExtra(Color colors) =>  TextStyle(
+TextStyle kmediumTextBoldExtra(Color colors) => TextStyle(
     color: colors,
-    fontSize: ExtraMedium,
+    fontSize: extraMedium,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w400
-);
+    fontWeight: FontWeight.w500);
 
-
-
-TextStyle kmediumTextBoldExtra(Color colors) =>  TextStyle(
+TextStyle klargeText(Color colors) => TextStyle(
     color: colors,
-    fontSize: ExtraMedium,
+    fontSize: large,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w500
-);
+    fontWeight: FontWeight.w500);
 
-TextStyle klargeText(Color colors) =>  TextStyle(
+TextStyle klargeTextBold(Color colors) => TextStyle(
     color: colors,
-    fontSize: Large,
+    fontSize: large,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w500
-);
+    fontWeight: FontWeight.w700);
 
-TextStyle klargeTextBold(Color colors) =>  TextStyle(
-    color: colors,
-    fontSize: Large,
-    fontFamily: fontFamily,
-    fontWeight: FontWeight.w700
-);
-
-
-TextStyle kextralargeText(Color colors) =>  TextStyle(
+TextStyle kextralargeText(Color colors) => TextStyle(
     color: colors,
     fontSize: 45,
     fontFamily: fontFamily,
-    fontWeight: FontWeight.w700
-);
-
+    fontWeight: FontWeight.w700);

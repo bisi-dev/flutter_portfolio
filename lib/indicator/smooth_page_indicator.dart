@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'effects/indicator_effect.dart';
 import 'effects/expanding_dots_effect.dart';
+import 'effects/indicator_effect.dart';
 import 'painters/indicator_painter.dart';
 
 class SmoothPageIndicator extends AnimatedWidget {
@@ -15,14 +15,14 @@ class SmoothPageIndicator extends AnimatedWidget {
   final int count;
 
   /// If [textDirection] is [TextDirection.rtl], page offset will be reversed
-  final TextDirection textDirection;
+  final TextDirection? textDirection;
 
-  SmoothPageIndicator({
-    @required this.controller,
-    @required this.count,
+  const SmoothPageIndicator({
+    required this.controller,
+    required this.count,
     this.textDirection,
     this.effect = const ExpandingDotsEffect(),
-    Key key,
+    Key? key,
   })  : assert(controller != null),
         assert(effect != null),
         assert(count != null),

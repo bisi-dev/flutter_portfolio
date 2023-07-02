@@ -2,12 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../constants.dart';
+import '../main.dart';
 import 'intro_page.dart';
 
-import '../main.dart';
-import '../constants.dart';
-
 class SplashScreen2 extends StatefulWidget {
+  const SplashScreen2({Key? key}) : super(key: key);
+
   @override
   _SplashScreen2 createState() => _SplashScreen2();
 }
@@ -15,20 +17,20 @@ class SplashScreen2 extends StatefulWidget {
 class _SplashScreen2 extends State<SplashScreen2> {
   @override
   void initState() {
-    Timer(Duration(seconds: 2), onClose);
+    Timer(const Duration(seconds: 2), onClose);
     super.initState();
   }
 
   Future<void> onClose() async {
     Navigator.pushReplacement(
         context,
-        new PageRouteBuilder(
+        PageRouteBuilder(
             maintainState: true,
             opaque: true,
-            pageBuilder: (context, _, __) => new IntroPage(),
+            pageBuilder: (context, _, __) => const IntroPage(),
             transitionDuration: const Duration(seconds: 2),
             transitionsBuilder: (context, anim1, anim2, child) {
-              return new FadeTransition(
+              return FadeTransition(
                 child: child,
                 opacity: anim1,
               );
@@ -53,11 +55,9 @@ class _SplashScreen2 extends State<SplashScreen2> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  child: Image.asset("assets/images/newlogo.png",
-                      width: 30, height: 30, package: App.pkg),
-                ),
-                SizedBox(
+                Image.asset("assets/images/newlogo.png",
+                    width: 30, height: 30, package: App.pkg),
+                const SizedBox(
                   width: 10,
                 ),
                 SvgPicture.asset("assets/svg/mymedicines.svg",

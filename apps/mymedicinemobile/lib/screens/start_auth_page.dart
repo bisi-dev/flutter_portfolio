@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants.dart';
-import '../text_style.dart';
 import '../main.dart';
+import '../text_style.dart';
 
 class StartAuthPage extends StatefulWidget {
+  const StartAuthPage({Key? key}) : super(key: key);
+
   @override
   _StartAuthPage createState() => _StartAuthPage();
 }
@@ -33,7 +35,7 @@ class _StartAuthPage extends State<StartAuthPage> {
     return Scaffold(
       backgroundColor: kColorWhite,
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: width,
           height: height,
           child: Stack(
@@ -43,82 +45,72 @@ class _StartAuthPage extends State<StartAuthPage> {
                 left: 20,
                 right: 20,
                 bottom: 0,
-                child: Container(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            child: Image.asset("assets/images/newlogo.png",
-                                width: 30, height: 30, package: App.pkg),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          SvgPicture.asset(
-                            "assets/svg/mymedicines.svg",
-                            height: 20,
-                          ),
-                        ],
-                        mainAxisAlignment: MainAxisAlignment.center,
-                      ),
-                      SizedBox(
-                        height: 100,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          playstoreAlert();
-                        },
-                        child: Container(
-                          width: width,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: kPrimaryColor,
-                            ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset("assets/images/newlogo.png",
+                            width: 30, height: 30, package: App.pkg),
+                        const SizedBox(width: 5),
+                        SvgPicture.asset(
+                          "assets/svg/mymedicines.svg",
+                          height: 20,
+                        ),
+                      ],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                    ),
+                    const SizedBox(height: 100),
+                    InkWell(
+                      onTap: () {
+                        playstoreAlert();
+                      },
+                      child: Container(
+                        width: width,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          border: Border.all(
                             color: kPrimaryColor,
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(8.0)),
                           ),
-                          child: Center(
-                            child: Text(
-                              "GET STARTED",
-                              style: kmediumTextBold(kColorWhite),
-                              textAlign: TextAlign.center,
-                            ),
+                          color: kPrimaryColor,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(8.0)),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "GET STARTED",
+                            style: kmediumTextBold(kColorWhite),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          playstoreAlert();
-                        },
-                        child: Container(
-                          width: width,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: kColorWhite,
-                            border: Border.all(
-                                width: .8,
-                                color: kPrimaryColor,
-                                style: BorderStyle.solid),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(8.0)),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "LOG IN",
-                              style: kmediumTextBold(kPrimaryColor),
-                              textAlign: TextAlign.center,
-                            ),
+                    ),
+                    const SizedBox(height: 25),
+                    InkWell(
+                      onTap: () {
+                        playstoreAlert();
+                      },
+                      child: Container(
+                        width: width,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: kColorWhite,
+                          border: Border.all(
+                              width: .8,
+                              color: kPrimaryColor,
+                              style: BorderStyle.solid),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(8.0)),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "LOG IN",
+                            style: kmediumTextBold(kPrimaryColor),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],

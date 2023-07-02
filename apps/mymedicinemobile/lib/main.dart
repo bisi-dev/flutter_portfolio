@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared/env.dart';
 
-import 'demo.dart';
+import 'app.dart';
 
 void main() => runApp(App());
 
@@ -11,9 +11,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const title = 'Boiler App';
-    return MaterialApp(
-      title: title,
+    return const MaterialApp(
+      title: 'My Medicines',
       home: MyApp(),
     );
   }

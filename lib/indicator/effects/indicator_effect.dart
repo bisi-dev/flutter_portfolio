@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../painters/indicator_painter.dart';
 
 abstract class IndicatorEffect {
@@ -27,14 +28,14 @@ abstract class IndicatorEffect {
   final double strokeWidth;
 
   const IndicatorEffect({
-    @required this.strokeWidth,
-    @required this.dotWidth,
-    @required this.dotHeight,
-    @required this.spacing,
-    @required this.radius,
-    @required this.dotColor,
-    @required this.paintStyle,
-    @required this.activeDotColor,
+    required this.strokeWidth,
+    required this.dotWidth,
+    required this.dotHeight,
+    required this.spacing,
+    required this.radius,
+    required this.dotColor,
+    required this.paintStyle,
+    required this.activeDotColor,
   })  : assert(radius != null),
         assert(dotColor != null || paintStyle != null || strokeWidth != null),
         assert(activeDotColor != null),

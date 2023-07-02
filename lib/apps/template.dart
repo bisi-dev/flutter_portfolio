@@ -1,20 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'package:aella/app.dart' deferred as aella;
+import 'package:defiscan/app.dart' deferred as defiscan;
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_showcase/flutter_showcase.dart';
-
-import 'package:mymedicinemobile/demo.dart' deferred as mymedicinemobile;
-import 'package:defiscan/demo.dart' deferred as defiscan;
-import 'package:flutter_flutterwave/demo.dart' deferred as flutter_flutterwave;
-import 'package:flutter_paystack_app/demo.dart'
-    deferred as flutter_paystack_app;
+import 'package:mymedicinemobile/app.dart' deferred as mymedicinemobile;
+import 'package:parceldrop/app.dart' deferred as parceldrop;
 import 'package:shared/env.dart';
 
 class TemplateApp extends StatefulWidget {
   final _TemplateApp app;
   final TemplateThemeData theme;
 
-  const TemplateApp({Key key, this.app, this.theme}) : super(key: key);
+  const TemplateApp({Key? key, required this.app, required this.theme})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _AppState();
@@ -30,54 +27,45 @@ class _AppState extends State<TemplateApp> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: widget.app.loadLibrary(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return MaterialApp(
-              builder: Frame.builder,
-              debugShowCheckedModeBanner: false,
-              home: widget.app.page(context),
-            );
-          } else {
-            return Frame.builder(
-                context, Container(color: widget.theme.backgroundColor));
-          }
-        });
+      future: widget.app.loadLibrary(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return MaterialApp(
+            builder: Frame.builder,
+            debugShowCheckedModeBanner: false,
+            home: widget.app.page(context),
+          );
+        } else {
+          return Frame.builder(
+              context, Container(color: widget.theme.backgroundColor));
+        }
+      },
+    );
   }
 }
 
 class _TemplateApp {
   final String title;
-
   final String description;
-
-  final String githubUrl;
-
-  final String codePenUrl;
-
-  final String playStoreUrl;
-
-  final String appStoreUrl;
-
-  final String articleUrl;
-
+  final String? githubUrl;
+  final String? playStoreUrl;
+  final String? appStoreUrl;
+  final String? articleUrl;
   final Future<dynamic> Function() loadLibrary;
-
   final WidgetBuilder page;
-
   final TemplateThemeData theme;
 
-  _TemplateApp(
-      {this.title,
-      this.description,
-      this.githubUrl,
-      this.loadLibrary,
-      this.page,
-      this.theme,
-      this.playStoreUrl,
-      this.appStoreUrl,
-      this.articleUrl,
-      this.codePenUrl});
+  _TemplateApp({
+    required this.title,
+    required this.description,
+    this.githubUrl,
+    required this.loadLibrary,
+    required this.page,
+    required this.theme,
+    this.playStoreUrl,
+    this.appStoreUrl,
+    this.articleUrl,
+  });
 
   Widget get showcase => Showcase(
         key: Key('showcase: $title'),
@@ -90,39 +78,40 @@ class _TemplateApp {
         theme: theme,
         description: description,
         links: [
-          if (githubUrl != null) LinkData.github(githubUrl),
-          if (codePenUrl != null) LinkData.codePen(codePenUrl),
+          if (githubUrl != null) LinkData.github(githubUrl!),
           if (playStoreUrl != null)
             LinkData(
-              url: playStoreUrl,
+              url: playStoreUrl!,
               title: 'Google PlayStore',
               icon: Opacity(
                 opacity: 0.8,
                 child: Padding(
-                    padding: EdgeInsets.only(top: 0),
-                    child: Image.asset(
-                      'assets/logo-google-play.png',
-                      fit: BoxFit.fitHeight,
-                    )),
+                  padding: const EdgeInsets.only(top: 0),
+                  child: Image.asset(
+                    'assets/logo-google-play.png',
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
               ),
             ),
           if (appStoreUrl != null)
             LinkData(
-              url: appStoreUrl,
+              url: appStoreUrl!,
               title: 'App Store',
               icon: Opacity(
                 opacity: 0.8,
                 child: Padding(
-                    padding: EdgeInsets.only(top: 0),
-                    child: Image.asset(
-                      'assets/logo-app-store.png',
-                      fit: BoxFit.fitHeight,
-                    )),
+                  padding: EdgeInsets.only(top: 0),
+                  child: Image.asset(
+                    'assets/logo-app-store.png',
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
               ),
             ),
           if (articleUrl != null)
             LinkData(
-              url: articleUrl,
+              url: articleUrl!,
               title: 'Read Article',
               icon: Opacity(
                 opacity: 0.8,
@@ -135,193 +124,119 @@ class _TemplateApp {
               ),
             ),
         ],
+        logoLink: LinkData(icon: const SizedBox(), url: '', title: ''),
       );
 }
 
 class TemplateApps {
+  static List<_TemplateApp> values = [
+    aellaCredit,
+    defiScan,
+    parcel,
+    myMedicineMobile,
+  ];
+
+  static _TemplateApp aellaCredit = _TemplateApp(
+    title: 'Aella App',
+    description: '''
+Work - Commercial Project
+
+This is a fintech app built for Aella (YC 15).
+Aella is a diversified credit payments platform with over 2 million users, offering a raft of financial services to underbanked users across emerging markets with a focus on lending. 
+
+This is a commercial app for Aella. [Demo only includes Splash Screen]. 
+Please visit the store to use.
+    ''',
+    playStoreUrl:
+        'https://play.google.com/store/apps/details?id=com.aella.comportal',
+    appStoreUrl: 'https://apps.apple.com/ng/app/aella-app/id1498675625',
+    loadLibrary: aella.loadLibrary,
+    page: (_) => aella.MyApp(),
+    theme: appTheme,
+  );
+
+  static _TemplateApp defiScan = _TemplateApp(
+    title: 'DeFi Scan',
+    description: ('''
+Personal - Commercial Project
+
+DeFi Scan is a multi-purpose mobile block chain explorer app where individuals can search, explore, curate & store records of multiple cryptocurrency accounts in one overview.
+
+This is a personal project. An extensive preview is embedded on this site.
+The full source code is hosted on GitHub. 
+You can also visit the App store to use.
+    '''),
+    appStoreUrl:
+        'https://apps.apple.com/ng/app/defi-scan/id1644035976?platform=iphone',
+    githubUrl: 'https://github.com/bisi-dev/defiscan',
+    loadLibrary: defiscan.loadLibrary,
+    page: (_) => defiscan.MyApp(),
+    theme: appTheme,
+  );
+
+  static _TemplateApp parcel = _TemplateApp(
+    title: 'Parcel Drop',
+    description: ('''
+Work - Commercial Project
+
+This is a mobility-as-a-service MVP built for a client.
+ParcelDrop involves real-time tracking package delivery for persons and businesses.
+
+This is a commercial app for a client. [Demo only includes Splash + Onboarding Screens]. 
+Please visit the App store to use.
+    '''),
+    appStoreUrl: 'https://apps.apple.com/app/parceldrop/id1666680880',
+    loadLibrary: parceldrop.loadLibrary,
+    page: (_) => parceldrop.MyApp(),
+    theme: appTheme,
+  );
+
   static _TemplateApp myMedicineMobile = _TemplateApp(
     title: 'myMedicines',
-    description: ''' 
-Team - Commercial Project
+    description: '''
+Work - Commercial Project
 
-myMedicines is an eCommerce mobile app for medicines where individuals visit and can add multiple medicines, devices and other items to their cart, upload prescriptions where necessary and make payments for their medicines. 
+This is a health-tech app built for MyMedicines
+myMedicines is an eCommerce mobile app for medicines where individuals visit and can add multiple medicines, devices and other items to their cart, upload prescriptions where necessary and make payments for their medicines.
 
-This is a commercial app for a client. Please visit the playstore to use.
+This is a commercial app for a client. [Demo only includes Splash + Onboarding Screens]. 
+Please visit the playstore to use.
     ''',
     playStoreUrl:
         'https://play.google.com/store/apps/details?id=co.mymedicine.co.mymedicinemobile',
     loadLibrary: mymedicinemobile.loadLibrary,
     page: (_) => mymedicinemobile.MyApp(),
-    theme: TemplateThemeData(
-        brightness: Brightness.light,
-        buttonTheme: ButtonThemeData(
-          buttonColor: Color(0xFF083e64),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-          textTheme: ButtonTextTheme.accent,
-          padding: EdgeInsets.all(16),
-        ),
-        flutterLogoColor: FlutterLogoColor.original,
-        descriptionTextStyle: TextStyle(
-            color: Color(0xFF083e64),
-            fontWeight: FontWeight.w300,
-            fontFamily: 'OpenSans',
-            package: 'gooey_edge'),
-        titleTextStyle: TextStyle(
-            color: Color(0xFF212121),
-            fontFamily: 'OpenSans',
-            fontSize: 50,
-            fontWeight: FontWeight.w700,
-            package: 'mymedicinemobile'),
-        backgroundColor: Color(0xFFf0f0f0),
-        buttonTextStyle: TextStyle(
-            fontSize: 16,
-            letterSpacing: .8,
-            fontFamily: 'OpenSans',
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-            package: 'mymedicinemobile'),
-        buttonIconTheme: IconThemeData(color: Colors.white)),
+    theme: appTheme,
   );
-
-  static _TemplateApp defiScan = _TemplateApp(
-    title: 'DeFi Scan',
-    description: ''' 
-Personal - Commercial Project
-
-DeFi Scan is a multi-purpose mobile block chain explorer app where individuals can search, explore, curate & store records of multiple cryptocurrency accounts in one overview.
-
-This is a personal project. An extensive preview is embedded on this site. You can also visit the App store to use.
-    ''',
-    appStoreUrl: 'https://www.apple.com/app-store/',
-    loadLibrary: defiscan.loadLibrary,
-    page: (_) => defiscan.MyApp(),
-    theme: TemplateThemeData(
-        brightness: Brightness.light,
-        buttonTheme: ButtonThemeData(
-          buttonColor: Color(0xFF083e64),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-          textTheme: ButtonTextTheme.accent,
-          padding: EdgeInsets.all(16),
-        ),
-        flutterLogoColor: FlutterLogoColor.original,
-        descriptionTextStyle: TextStyle(
-            color: Color(0xFF083e64),
-            fontWeight: FontWeight.w300,
-            fontFamily: 'OpenSans',
-            package: 'gooey_edge'),
-        titleTextStyle: TextStyle(
-            color: Color(0xFF212121),
-            fontFamily: 'OpenSans',
-            fontSize: 50,
-            fontWeight: FontWeight.w700,
-            package: 'defiscan'),
-        backgroundColor: Color(0xFFf0f0f0),
-        buttonTextStyle: TextStyle(
-            fontSize: 16,
-            letterSpacing: .8,
-            fontFamily: 'OpenSans',
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-            package: 'defiscan'),
-        buttonIconTheme: IconThemeData(color: Colors.white)),
-  );
-
-  static _TemplateApp flutterwave = _TemplateApp(
-    title: 'Flutterwave Payment App',
-    description: ''' 
-Personal Project
-
-This is a simple payment app using flutterwave as a payment provider.
-Flutterwave is a fintech company that provides a payment infrastructure for global merchants.
-
-I built this app to explain how to integrate Flutterwave's SDK in flutter apps in order to accept payments.
-    ''',
-    githubUrl: 'https://github.com/bisi-dev/flutter_flutterwave',
-    articleUrl:
-        'https://blog.bisi.dev/tutorial-integrate-flutterwave-into-your-flutter-app',
-    loadLibrary: flutter_flutterwave.loadLibrary,
-    page: (_) => flutter_flutterwave.MyApp(),
-    theme: TemplateThemeData(
-        brightness: Brightness.light,
-        buttonTheme: ButtonThemeData(
-          buttonColor: Color(0xFF083e64),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-          textTheme: ButtonTextTheme.accent,
-          padding: EdgeInsets.all(16),
-        ),
-        flutterLogoColor: FlutterLogoColor.original,
-        descriptionTextStyle: TextStyle(
-            color: Color(0xFF083e64),
-            fontWeight: FontWeight.w300,
-            fontFamily: 'OpenSans',
-            package: 'gooey_edge'),
-        titleTextStyle: TextStyle(
-            color: Color(0xFF212121),
-            fontFamily: 'OpenSans',
-            fontSize: 50,
-            fontWeight: FontWeight.w700,
-            package: 'flutter_flutterwave'),
-        backgroundColor: Color(0xFFf0f0f0),
-        buttonTextStyle: TextStyle(
-            fontSize: 16,
-            letterSpacing: .8,
-            fontFamily: 'OpenSans',
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-            package: 'flutter_flutterwave'),
-        buttonIconTheme: IconThemeData(color: Colors.white)),
-  );
-
-  static _TemplateApp paystack = _TemplateApp(
-    title: 'Paystack Payment App',
-    description: ''' 
-Personal Project
-
-This is a simple payment app using paystack as a payment provider.
-Paystack (YC 2016) offers payment processing software and application programming interfaces (APIs) that allows businesses accept payments via credit card, debit card, money transfer and mobile money on their websites or mobile apps. 
-
-I built this app to explain how to integrate Paystack's SDK in flutter apps in order to accept payments.
-    ''',
-    githubUrl: 'https://github.com/bisi-dev',
-    articleUrl:
-        'https://blog.bisi.dev/tutorial-integrate-paystack-into-your-flutter-app',
-    loadLibrary: flutter_paystack_app.loadLibrary,
-    page: (_) => flutter_paystack_app.MyApp(),
-    theme: TemplateThemeData(
-        brightness: Brightness.light,
-        buttonTheme: ButtonThemeData(
-          buttonColor: Color(0xFF083e64),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-          textTheme: ButtonTextTheme.accent,
-          padding: EdgeInsets.all(16),
-        ),
-        flutterLogoColor: FlutterLogoColor.original,
-        descriptionTextStyle: TextStyle(
-            color: Color(0xFF083e64),
-            fontWeight: FontWeight.w300,
-            fontFamily: 'OpenSans',
-            package: 'gooey_edge'),
-        titleTextStyle: TextStyle(
-            color: Color(0xFF212121),
-            fontFamily: 'OpenSans',
-            fontSize: 50,
-            fontWeight: FontWeight.w700,
-            package: 'flutter_paystack_app'),
-        backgroundColor: Color(0xFFf0f0f0),
-        buttonTextStyle: TextStyle(
-            fontSize: 16,
-            letterSpacing: .8,
-            fontFamily: 'OpenSans',
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-            package: 'flutter_paystack_app'),
-        buttonIconTheme: IconThemeData(color: Colors.white)),
-  );
-
-  static List<_TemplateApp> values = [
-    defiScan,
-    myMedicineMobile,
-    flutterwave,
-    paystack
-  ];
 }
+
+TemplateThemeData appTheme = TemplateThemeData(
+  buttonTheme: ButtonThemeData(
+    colorScheme:
+        const ColorScheme.light().copyWith(background: const Color(0xFF083E64)),
+    buttonColor: const Color(0xFF083E64),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+    textTheme: ButtonTextTheme.accent,
+    padding: const EdgeInsets.all(16),
+  ),
+  descriptionTextStyle: const TextStyle(
+    color: Color(0xFF083E64),
+    fontWeight: FontWeight.w300,
+    fontFamily: 'OpenSans',
+  ),
+  titleTextStyle: const TextStyle(
+    color: Color(0xFF212121),
+    fontFamily: 'OpenSans',
+    fontSize: 50,
+    fontWeight: FontWeight.w700,
+  ),
+  backgroundColor: const Color(0xFFF0F0F0),
+  buttonTextStyle: const TextStyle(
+    fontSize: 16,
+    letterSpacing: .8,
+    fontFamily: 'OpenSans',
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+  ),
+  buttonIconTheme: const IconThemeData(color: Colors.white),
+);

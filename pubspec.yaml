@@ -4,26 +4,27 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.3
+  cupertino_icons: ^1.0.5
   flutter_showcase:
     git:
       url: https://github.com/bisi-dev/flutter_showcase
+      ref: flutter3
 
   shared:
     path: apps/_shared/
-  mymedicinemobile:
-    path: apps/mymedicinemobile/
+  aella:
+    path: apps/aella/
   defiscan:
     path: apps/defiscan/
-  flutter_flutterwave:
-    path: apps/flutter_flutterwave/
-  flutter_paystack_app:
-    path: apps/flutter_paystack_app/
+  mymedicinemobile:
+    path: apps/mymedicinemobile/
+  parceldrop:
+    path: apps/parceldrop/
 
 dev_dependencies:
   flutter_test:

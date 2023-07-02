@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../painters/expanding_dots_painter.dart';
 import '../painters/indicator_painter.dart';
-
 import 'indicator_effect.dart';
 
 class ExpandingDotsEffect extends IndicatorEffect {
@@ -11,7 +11,7 @@ class ExpandingDotsEffect extends IndicatorEffect {
 
   const ExpandingDotsEffect({
     this.expansionFactor = 3,
-    double offset,
+    double offset = 0.0,
     double dotWidth = 16.0,
     double dotHeight = 16.0,
     double spacing = 8.0,
