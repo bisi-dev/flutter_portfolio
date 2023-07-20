@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   void loadApp() async {
     await AppPreferences.init();
     await StorageService.initLocalDatabase();
-    await Future.delayed(const Duration(seconds: 1));
+    LocalJsonLocalization.delegate.directories = ['packages/defiscan/lib/i18n'];
     if (mounted) {
       setState(() => loaded = true);
     }
@@ -35,7 +35,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    LocalJsonLocalization.delegate.directories = ['packages/defiscan/lib/i18n'];
     if (!loaded) {
       return SizedBox();
     }
