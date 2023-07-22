@@ -37,7 +37,22 @@ class _AppState extends State<TemplateApp> {
           );
         } else {
           return Frame.builder(
-              context, Container(color: widget.theme.backgroundColor));
+            context,
+            const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Installing...',
+                  style: TextStyle(fontSize: 20),
+                ),
+                SizedBox(height: 16),
+                SizedBox(
+                  width: 200,
+                  child: LinearProgressIndicator(value: 0.5),
+                )
+              ],
+            ),
+          );
         }
       },
     );
@@ -101,7 +116,7 @@ class _TemplateApp {
               icon: Opacity(
                 opacity: 0.8,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 0),
+                  padding: const EdgeInsets.only(top: 0),
                   child: Image.asset(
                     'assets/logo-app-store.png',
                     fit: BoxFit.fitHeight,
@@ -116,7 +131,7 @@ class _TemplateApp {
               icon: Opacity(
                 opacity: 0.8,
                 child: Padding(
-                    padding: EdgeInsets.only(top: 0),
+                    padding: const EdgeInsets.only(top: 0),
                     child: Image.asset(
                       'assets/logo-white.png',
                       fit: BoxFit.fitHeight,
